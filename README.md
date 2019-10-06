@@ -1,5 +1,5 @@
-#Design Document
-##Instructions
+# Design Document
+## Instructions
 To run the game, download the code from GitHub and ensure all files are in
 the same package.  Then run the Main.java file in your terminal.
 This will begin the game.  To run the tests, ensure the tests 
@@ -7,7 +7,7 @@ are in the same package as the rest of the files.  Then run the
 tests in your terminal.  The tests are located in the following
 files: HandTests.java, DeckTests.java, PlayerTests.java.
 ##Design Choices
-###Card and Ace
+### Card and Ace
 Each card was represented with a name and rank.  I choose to 
 use an enum to represent the names in order to ensure the name
 passed in is valid.  As well, if the project is expanded to 
@@ -18,7 +18,7 @@ creating a new class would provide more readable code, rather
 than say adding a boolean in the Card class that would check it.
 In the constructor of the card class I ensured that the rank 
 passed in is no more than 11, the maximum value a card can have.
-###Deck
+### Deck
 I choose to represent the deck as a stack because of the necessity
 to take a card off the top.  For populating the deck I choose to
 create a separate method to add four cards for better readability.
@@ -58,7 +58,7 @@ for the future of the project so that if a high stakes game
 of BlackJack were happening the deck can be more randomized. 
 As well, if the project is expanded to have a game that requires
 multiple shuffles then this method will allow for that.
-###Hand
+### Hand
 Unlike the Ace and Card situation, I felt the dealer aspect of a
 hand could be easily represented by a boolean.  This allows me to
 check in the ToString method whether or not the dealer's full hand
@@ -80,7 +80,7 @@ I choose to handle the logic of the
 soft/hard ace rule within the hand class rather then within the 
 card class so that I would not have to recalculate the total
 value of the hand.
-###Player
+### Player
 In order to make the game more realistic, I created a player object
 that tracks the amount of money each player has and their bet.  I 
 choose to handle the result logic within the hand because of how I
@@ -92,7 +92,7 @@ a bet made by a player is valid in both being greater than 0 and less
 than the amount of money they have.  This also ensures a player can not
 play without adding money.  I also validated that the money added is
 valid(greater than 0).
-###Game
+### Game
 One of the major design choices I made is populating the number of 
 players in the game from the start rather than adding, removing, and
 creating a new Player each time a player is added.  I made this decision
@@ -114,7 +114,7 @@ ability to set the table size in order to provide more freedom to the
 client of the game.  Since the dealer does not need to keep track of any
 money it does not need it's own object and can thus be represented as just
 a hand.
-###Overall
+### Overall
 I choose to break up the code based on each aspect of the game of blackjack.
 The game is made up of multiple players who all have a hand.  Each hand is
 is made up of cards which are dealt from a deck.  For every aspect in which
@@ -122,7 +122,7 @@ I iterate over a list I opted for for loops rather than a stream.  Here, I
 opted for performance rather than readability.  As well, when testing the code 
 it is easier to debug.  Since blackjack is best played with other players 
 I opted to make it a multilayer game.
-###Tests
+### Tests
 The tests I choose to write focus on the more complex
 aspects of the game.  The deck must handle the ability to get a card and ensure
 that a NullPointerException is not thrown in the middle of it as that would 
@@ -132,7 +132,7 @@ are not supposed to and the other players do not want another player to gain mon
 when they are not supposed to.  The hand class must be tested in order to ensure
 the player is not cheated out of a win or given a win when they should have
 lost.
-###Future
+### Future
 There is a lot of places where this project can improve.  The main aspect that it 
 can improve upon is the user interface.  The cards and hand could be better displayed.
 As well there could be better interaction with the player so that they are able to be
@@ -144,10 +144,13 @@ then I would restructure the card, deck, and player classes so that they can app
 to more classes.  Another possible addition would be to setup a money transfer system
 in which players are playing for real money.  This could also be set up so that an
 individual could manage their own blackjack game in which they are the dealer.  This would
-go along with the money transfer idea.  This would work well as an MVP if we were 
+go along with the money transfer idea.  More test cases should also be written to 
+account for all possible cases.  To go along with this, the code could be refactored
+so that there is less print statements, allowing for easier to write test cases
+This would work well as an MVP if we were 
 trying to test if individuals would want to play BlackJack online, but there are bugs
 and unaccounted for use cases that need to be solved.
-##Libraries Used
+## Libraries Used
 1. Java 11  
 I used the most updated Java library in order to have access
 to the most up to date tools.
